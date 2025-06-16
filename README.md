@@ -29,16 +29,17 @@ hotdog-classifier-mlops/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── train_logreg.py        # Classic ML: HOG + LogisticRegression
-├── train_mobilenet.py     # MobileNetV2 (PyTorch)
-├── train_resnet.py        # ResNet18 (PyTorch)
-├── streamlit_app.py       # Streamlit inference web app
-├── models/                # Trained weights (.pt, .pkl)
+├── train_logreg.py                  # Classic ML: HOG + LogisticRegression
+├── train_mobilenet.py               # MobileNetV2 (PyTorch)
+├── train_resnet.py                  # ResNet18 (PyTorch)
+├── streamlit_app.py                 # Streamlit inference web app (for deployment)
+├── streamlit_multi_model_hotdog.py  # Local microservice REST demo
+├── models/                          # Trained weights (.pt, .pkl)
 │   ├── best_model.pt
 │   ├── mobilenetv2_state.pt
 │   └── logreg_model.pkl
-├── images/                # Demo/example images (optional)
-├── notebooks/             # EDA or exploratory notebooks (optional)
+├── images/                          # Demo/example images (optional)
+├── notebooks/                       # EDA or exploratory notebooks (optional)
 ```
 </details>
 
@@ -142,6 +143,61 @@ This project uses the open dataset [Hot Dog - Not Hot Dog](https://www.kaggle.co
 
 ---
 
+## 🖥️ Streamlit App Files Explained
+
+This project provides two main Streamlit apps, each with a different purpose and deployment workflow:
+
+### 1. `streamlit_app.py` &nbsp;🌐 *[Recommended for Deployment]*
+
+- **Purpose:**  
+  Main multi-model inference app designed for **deployment on Streamlit Cloud** (or any single-process environment).
+- **How it works:**  
+  - Directly loads all trained models (Logistic Regression, MobileNetV2, ResNet18) in a single script.
+  - Lets you choose the model using a dropdown.
+  - Handles all inference *locally within the app process* (no external API calls or separate servers required).
+- **When to use:**  
+  - When deploying to [Streamlit Cloud](https://streamlit.io/cloud), Heroku, or running a self-contained demo.
+  - When you want students or users to easily replicate and experiment in one place.
+- **Run with:**  
+  ```bash
+  streamlit run streamlit_app.py
+  ```
+
+---
+
+### 2. `streamlit_multi_model_hotdog.py` &nbsp;🧪 *[For Advanced Local Interaction]*
+
+- **Purpose:**  
+  Alternative app for **local development and microservice-style experiments**.
+- **How it works:**  
+  - Assumes each model is served as a **separate backend service on its own port** (e.g., ResNet18 on 5001, LogReg on 5002, MobileNetV2 on 5003).
+  - The Streamlit frontend sends REST API requests to these ports depending on which model is selected in the UI.
+  - Useful for experimenting with real-world model serving, RAG, or scaling to more advanced MLOps setups.
+- **When to use:**  
+  - When developing locally and you want to separate serving logic, e.g., with Flask/FastAPI or MLflow model servers.
+  - For MLOps/Microservices demos, or if you're teaching about decoupled model serving.
+- **Run with:**  
+  ```bash
+  streamlit run streamlit_multi_model_hotdog.py
+  ```
+  *(Make sure each backend model server is already running on the expected port!)*
+
+---
+
+**Summary Table**
+
+| File                          | For Cloud Deployment? | For Local/Advanced Use? | Model Selection | Inference logic      |
+|-------------------------------|----------------------|------------------------|-----------------|----------------------|
+| `streamlit_app.py`            | ✅                   | ✅                     | Dropdown        | In-app (single proc) |
+| `streamlit_multi_model_hotdog.py` | ❌                   | ✅                     | Dropdown        | REST API to ports    |
+
+---
+
+> For most users and all cloud deployment, use **`streamlit_app.py`**.  
+> Use **`streamlit_multi_model_hotdog.py`** only if you want to run each model as a separate API service on your own machine.
+
+---
+
 ## 🙋 FAQ
 
 **Q: Why are there .pt and .pkl files in `/models`?**  
@@ -166,8 +222,8 @@ A: Absolutely! Fork, edit, and submit PRs.
 
 ## 👨‍💻 Credits
 
-- [Your Name] ([your LinkedIn](#) / [your email](#))
-- Workshop/Event: 0xMLOps, JKU Linz, June 2025
+- [Ahsan Tariq](https://huggingface.co/spaces/ahsan3274/personal-portfolio) ([LinkedIn](https://www.linkedin.com/in/ahsan-32-tariq/) / [email](mailto:ahsanntariq@protonmail.com))
+- Workshop/Event: 0xMLOps, Young-AI Leaders Linz JKU Linz, June 2025
 
 ---
 
