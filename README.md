@@ -215,7 +215,7 @@ A: Absolutely! Fork, edit, and submit PRs.
 
 - Fork this repo and try new architectures or augmentations.
 - Use MLflow to compare your experiments.
-- Ask questions or share results at [your Discord/Slack/group]!
+- - Ask questions or share results at Discord: `nasquamesse3274`
 - Contributions welcome—open a pull request for improvements.
 
 ---
