@@ -230,7 +230,7 @@ A: Absolutely! Fork, edit, and submit PRs.
 ## ⭐️ License
 
 Open source for learning, research, and fun.  
-See `LICENSE` file for details.
+
 
 ---
 
