@@ -1,0 +1,28 @@
+artifact_path: model
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.10.5
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.7.1+cpu
+is_signature_from_type_hint: false
+mlflow_version: 2.22.1
+model_size_bytes: 44793959
+model_uuid: c61dd5bc70db4137bb49dfdf7c0df6a4
+prompts: null
+run_id: f733236bda9249deada3136ba4a6eb7e
+signature:
+  inputs: '[{"type": "any", "required": true}]'
+  outputs: '[{"type": "any", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-06-15 16:51:07.868910'

@@ -1,0 +1,22 @@
+artifact_path: model
+flavors:
+  python_function:
+    artifacts:
+      torch_model_state:
+        path: artifacts\mobilenetv2_state.pt
+        uri: mobilenetv2_state.pt
+    cloudpickle_version: 3.1.1
+    code: null
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.10.5
+    streamable: false
+mlflow_version: 2.22.1
+model_size_bytes: 18326464
+model_uuid: 25d2f755c1964985895288dde394cc9c
+prompts: null
+run_id: 25bf3a3031e145eb855e8f90c1fe0b99
+utc_time_created: '2025-06-16 01:00:39.300724'
