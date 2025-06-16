@@ -49,7 +49,7 @@ if uploaded_file:
 
     if model_choice == "HOG + Logistic Regression (v1)":
         st.markdown("🧠 Preprocessing with `HOG` features")
-        gray = rgb2gray(np.array(image.resize((64, 64))))
+        gray = rgb2gray(np.array(image.resize((128, 128))))
         features = hog(
             gray,
             orientations=9,
