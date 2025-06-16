@@ -11,3 +11,10 @@ pillow
 matplotlib
 requests
 jupyter
+torch
+torchvision
+scikit-learn
+scikit-image
+pillow
+streamlit
+
