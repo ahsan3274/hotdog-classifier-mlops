@@ -95,15 +95,15 @@ streamlit run streamlit_app.py
 Want to retrain or experiment?
 - **Classic ML:**  
   ```bash
-  python train_logreg.py
+  python train.py
   ```
 - **MobileNetV2:**  
   ```bash
-  python train_mobilenet.py
+  python train_v2.py
   ```
 - **ResNet18:**  
   ```bash
-  python train_resnet.py
+  python train_v3.py
   ```
 - Trained weights will be saved in the `/models` folder.
 
